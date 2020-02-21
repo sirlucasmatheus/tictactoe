@@ -1,0 +1,93 @@
+*{padding:0; margin:0;}
+body{font-size:100%; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden;}
+
+/*SCREEN EDIT*/
+
+#screen-on-game{
+    background-image: linear-gradient(to top, #e4e2e2, #27aae1 130%);
+}
+
+.logo-edit{
+    width: 180px;
+    animation: girar 3s linear infinite;
+    pointer-events: none;
+    user-select: none;
+}
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(360deg); }
+}
+.full-screen-edit{
+    width:2.8%;
+    height:5%;
+    cursor: pointer;
+}
+
+/*MENU EDIT*/
+
+.menu-part{
+    margin-top: 15vh;
+}
+.menu-option{
+    animation-name: animatebottomToTop;
+    animation-duration: 1s;
+    background:#27aae1;
+    margin-bottom:15px;
+    text-align: center;
+    box-shadow: inset 0 2px 3px 0 rgba(255,255,255,.3), inset 0 -3px 6px 0 rgba(0,0,0,.2), 0 3px 2px 0 rgba(0,0,0,.2);
+    height:45px;
+    cursor: pointer;
+    border-radius:6px;
+    position: relative;
+    user-select: none;
+}
+@keyframes animatebottomToTop { 
+    from{ bottom:-30px; opacity:0 } 
+    to{ bottom:0; opacity:1 }
+}
+.menu-option p{
+    color: #fff;
+    font-size: 18px;
+}
+
+.menu-option:hover{
+    background:#0ab3fc;
+    transition-duration:.3s;
+}
+
+.sound{
+    cursor: pointer;
+    user-select: none;
+}
+.sound-option{
+    font-size: 24px;
+}
+#off_sound{
+    display: none;
+}
+
+/*COPYRIGHT*/
+
+.copyright-domain{
+    color:rgb(121, 121, 121);
+    font-size:80%;
+    user-select: none;
+}
+
+
+
+
+
+/*ON GAME EDITS*/
+
+/*SINGLE PLAYER*/
+#single-player{
+    position: absolute;
+    display:none;
+    animation-name: showGame;
+    animation-duration: 1s;
+}
+@keyframes showGame { 
+    from{ opacity:0 } 
+    to{ opacity:1 }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tic Tac Toe!</title>
+    <link rel="shortcut icon" href="img/tictactoe-icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js" integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="container">
+        <div id="screen-on-game" class="min-vh-100 mh-100 p-5 d-flex align-items-center justify-content-center">
+            <div id="logo-and-menu">
+                <div class="row sound" style="position: absolute; top: 6vh; left:20vh;">
+                    <span style="position: absolute;" class="fas fa-volume-up sound-icon-edit sound-option" id="on_sound"></span>
+                    <span style="position: absolute;" class="fas fa-volume-mute sound-icon-edit sound-option" id="off_sound"></span>
+                </div>
+                <div id="logo-part">
+                    <img class="logo-edit mt-3" src="img/tictactoe-logo.png">
+                </div>
+                <div class="menu-part">
+                    <div class="row justify-content-center menu-option" onclick="playGame('Single')"><p class="my-auto" >SINGLE PLAYER</p></div>
+                    <div class="row justify-content-center menu-option" onclick="playGame('Two')"><p class="my-auto" >TWO PLAYERS</p></div>
+                </div>
+                <div style="position: absolute; bottom: 6vh;">
+                    <article class="copyright-domain" unselectable="on"><i>By Lucas Matheus - <strong>fire4dev</strong></i></article>
+                </div>
+                <div id="audios-game">
+                    <audio id="sound-effect-menu" type="audio/wav" src="songs/onmousemove-sound-effect.wav" preload="auto"></audio>    
+                    <audio id="audio-menu" type="audio/mpeg" src="songs/menu_sound.mp3" preload="auto" autoplay loop>
+                </div>
+            </div>
+
+            <div id="single-player">
+                <div id="game-part">
+                    <div id="close-btn" style="top: 6vh; left:20vh;">
+                        <p class="close-btn-edit fas fa-times"></p>
+                    </div>
+                    <div id="tab-part" class="row">
+                        <div>
+                            <img id="tabuleiro" style="width:512px;" class="tab-img-edit" src="img/tabuleiro.png">
+                        </div>
+                        <div id="x-or-o">
+                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
+                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
+                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div><br>
+                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
+                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
+                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div><br>
+                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
+                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
+                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <img class="full-screen-edit" onclick="deixarTelaCheia()" src="img/fullscreen.png" placeholder="Tela Cheia"> -->
+            <!-- 
+                
+            
+            <div id="two-player">
+                
+            </div>
+        </div>
+         -->
+        </div>
+    </div>
+
+    <script>
+        //  -----------------    GAME PART
+        
+        function playGame (type) {
+            if (type == 'Single') {
+                $('#logo-and-menu').hide();
+                $('#single-player').show();
+                $('#close-btn').click('on', () => {
+                    $('#single-player').hide();
+                    $('#logo-and-menu').show();
+                })
+            }
+        }
+
+        //  -----------------    SOUND PART
+
+        let audioMenu = $('#audio-menu');
+
+        $('#on_sound').click('on', () => {
+            $('#on_sound').hide();
+            $('#off_sound').show();
+            audioMenu.trigger("pause");
+        })
+        $('#off_sound').click('on', () => {
+            $('#off_sound').hide();
+            $('#on_sound').show();
+            audioMenu.trigger("play");
+        })
+    </script>
+</body>
+</html>
