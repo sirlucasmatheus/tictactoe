@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div id="screen-on-game" class="min-vh-100 mh-100 p-5 d-flex align-items-center justify-content-center">
             <div id="logo-and-menu">
                 <div class="row sound" style="position: absolute; top: 6vh; left:20vh;">
@@ -38,22 +38,25 @@
             <div id="single-player">
                 <div id="game-part">
                     <div id="close-btn" style="top: 6vh; left:20vh;">
-                        <p class="close-btn-edit fas fa-times"></p>
+                        <p class="close-btn-edit arrow-left"></p>
                     </div>
                     <div id="tab-part" class="row">
                         <div>
-                            <img id="tabuleiro" style="width:512px;" class="tab-img-edit" src="img/tabuleiro.png">
-                        </div>
-                        <div id="x-or-o">
-                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
-                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
-                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div><br>
-                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
-                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
-                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div><br>
-                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
-                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
-                            <div id="click-x-or-o" class="click-edit" onclick="configClickPlayer(this)"><h2></h2></div>
+                            <div class="row">
+                                <div class="click-edit click-1" onclick="tabClick(1)"><h2></h2></div>
+                                <div class="click-edit click-2" onclick="tabClick(2)"><h2></h2></div>
+                                <div class="click-edit click-3" onclick="tabClick(3)"><h2></h2></div>
+                            </div>
+                            <div class="row">
+                                <div class="click-edit click-4" onclick="tabClick(4)"><h2></h2></div>
+                                <div class="click-edit click-5" onclick="tabClick(5)"><h2></h2></div>
+                                <div class="click-edit click-6" onclick="tabClick(6)"><h2></h2></div>
+                            </div>
+                            <div class="row">
+                                <div class="click-edit click-7" onclick="tabClick(7)"><h2></h2></div>
+                                <div class="click-edit click-8" onclick="tabClick(8)"><h2></h2></div>
+                                <div class="click-edit click-9" onclick="tabClick(9)"><h2></h2></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,6 +101,18 @@
             $('#on_sound').show();
             audioMenu.trigger("play");
         })
+
+        tabClick = (tab_value) => {
+            if (tab_value == 1) $('.click-1').addClass('fas fa-times')
+            else if (tab_value == 2) $('.click-2').html('<h2>X</h2>')
+            else if (tab_value == 3) $('.click-3').html()
+            else if (tab_value == 4) $('.click-4').html()
+            else if (tab_value == 5) $('.click-5').html()
+            else if (tab_value == 6) $('.click-6').html()
+            else if (tab_value == 7) $('.click-7').html()
+            else if (tab_value == 8) $('.click-8').html()
+            else if (tab_value == 9) $('.click-9').html()
+        }
     </script>
 </body>
 </html>
