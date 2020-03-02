@@ -42,20 +42,20 @@
                     </div>
                     <div id="tab-part" class="row">
                         <div>
-                            <div class="row">
-                                <div class="click-edit click-1" onclick="tabClick(1)"><h2></h2></div>
-                                <div class="click-edit click-2" onclick="tabClick(2)"><h2></h2></div>
-                                <div class="click-edit click-3" onclick="tabClick(3)"><h2></h2></div>
+                            <div class="row linha">
+                                <div class="tab_click" id="1" onclick="tabClick(this.id)"><h2></h2></div>
+                                <div class="tab_click" id="2" onclick="tabClick(this.id)"><h2></h2></div>
+                                <div class="tab_click" id="3" onclick="tabClick(this.id)"><h2></h2></div>
                             </div>
-                            <div class="row">
-                                <div class="click-edit click-4" onclick="tabClick(4)"><h2></h2></div>
-                                <div class="click-edit click-5" onclick="tabClick(5)"><h2></h2></div>
-                                <div class="click-edit click-6" onclick="tabClick(6)"><h2></h2></div>
+                            <div class="row linha">
+                                <div class="tab_click" id="4" onclick="tabClick(this.id)"><h2></h2></div>
+                                <div class="tab_click" id="5" onclick="tabClick(this.id)"><h2></h2></div>
+                                <div class="tab_click" id="6" onclick="tabClick(this.id)"><h2></h2></div>
                             </div>
-                            <div class="row">
-                                <div class="click-edit click-7" onclick="tabClick(7)"><h2></h2></div>
-                                <div class="click-edit click-8" onclick="tabClick(8)"><h2></h2></div>
-                                <div class="click-edit click-9" onclick="tabClick(9)"><h2></h2></div>
+                            <div class="row linha">
+                                <div class="tab_click" id="7" onclick="tabClick(this.id)"><h2></h2></div>
+                                <div class="tab_click" id="8" onclick="tabClick(this.id)"><h2></h2></div>
+                                <div class="tab_click" id="9" onclick="tabClick(this.id)"><h2></h2></div>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
     <script>
         //  -----------------    GAME PART
         
-        function playGame (type) {
+        playGame = (type) => {
             if (type == 'Single') {
                 $('#logo-and-menu').hide();
                 $('#single-player').show();
@@ -103,15 +103,29 @@
         })
 
         tabClick = (tab_value) => {
-            if (tab_value == 1) $('.click-1').addClass('fas fa-times')
-            else if (tab_value == 2) $('.click-2').html('<h2>X</h2>')
-            else if (tab_value == 3) $('.click-3').html().addClass('fas fa-times')
-            else if (tab_value == 4) $('.click-4').html()
-            else if (tab_value == 5) $('.click-5').html()
-            else if (tab_value == 6) $('.click-6').html()
-            else if (tab_value == 7) $('.click-7').html()
-            else if (tab_value == 8) $('.click-8').html()
-            else if (tab_value == 9) $('.click-9').html()
+            // .html(`<h2 class=${turn_of==1?'fas fa-times':'fas fa-circle'}></h2>`);
+            let count=0, game_click=9, turn_of=1;
+            // for (count<=game_click; game_click--;){
+            //     verifyGame(tab_value, game_click);
+            //     alert(game_click)
+            // }
+            $('#'+tab_value).html(`<h2 class="${turn_of==1?'fas fa-times':'fas fa-circle'}"></h2>`);
+        }
+
+        verifyGame = (tab_value, game_click) => {
+            if (game_click>0) {
+                if (tab_value == 1) $('.click-1').html('<h2 class="fas fa-times"></h2>')
+                else if (tab_value == 2) $('.click-2').html('<h2 class="fas fa-times"></h2>')
+                else if (tab_value == 3) $('.click-3').html('<h2 class="fas fa-times"></h2>')
+                else if (tab_value == 4) $('.click-4').html('<h2 class="fas fa-times"></h2>')
+                else if (tab_value == 5) $('.click-5').html('<h2 class="fas fa-times"></h2>')
+                else if (tab_value == 6) $('.click-6').html('<h2 class="fas fa-times"></h2>')
+                else if (tab_value == 7) $('.click-7').html('<h2 class="fas fa-times"></h2>')
+                else if (tab_value == 8) $('.click-8').html('<h2 class="fas fa-times"></h2>')
+                else if (tab_value == 9) $('.click-9').html('<h2 class="fas fa-times"></h2>')
+            }else{
+                alert('end game')
+            }
         }
     </script>
 </body>
